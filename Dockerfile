@@ -1,4 +1,4 @@
-FROM nginx
+FROM debian:jessie
 
 MAINTAINER Igor Shishkin <me@teran.ru>
 LABEL application=php5-fpm
@@ -6,6 +6,9 @@ LABEL description="nginx and php5-fpm"
 
 RUN apt-get update && \
     apt-get install -y \
+      nginx \
+      nginx-common \
+      nginx-full \
       php5-apcu \
       php5-fpm \
       php5-gd \
