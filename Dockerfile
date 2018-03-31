@@ -14,11 +14,13 @@ RUN apt-get update && \
       php5-gd \
       php5-memcache \
       php5-mysql \
+      supervisor \
       wget && \
     apt-get clean && \
     rm -rvf /var/lib/apt/lists/* && \
     mkdir -p /var/www
 
+ADD supervisord.conf /etc/supervisord.conf
 ADD nginx.conf /etc/nginx/nginx.conf
 ADD php5-fpm.ini /etc/php5/fpm/pool.d/www.conf
 ADD entrypoint.sh /entrypoint.sh

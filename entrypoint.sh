@@ -1,5 +1,6 @@
-#!/bin/sh -e
+#!/usr/bin/env bash
 
-service php5-fpm start
-/usr/sbin/nginx
+set -euo pipefail
 
+# Run supervisord
+exec /usr/bin/supervisord -n -c /etc/supervisord.conf
